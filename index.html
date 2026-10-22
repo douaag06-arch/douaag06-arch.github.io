@@ -1,218 +1,290 @@
-```html
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Douaa Guetleni | Portfolio Data Science</title>
+  <meta name="description" content="Portfolio de Douaa Guetleni, étudiante en Master Mathématiques-Informatique, parcours Data Science.">
+  <title>Douaa Guetleni | Data Science Portfolio</title>
 
   <style>
     :root {
-      --navy: #16345c;
-      --blue: #3478c8;
-      --light-blue: #eaf3fc;
-      --gray: #64748b;
-      --light-gray: #f4f7fb;
-      --white: #ffffff;
+      --bg: #f4f7fb;
+      --panel: #ffffff;
+      --text: #172b4d;
+      --muted: #64748b;
+      --accent: #2459a9;
+      --blue: #6d96d9;
+      --border: rgba(22, 52, 92, .13);
     }
 
     * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
+    }
+
+    html {
       scroll-behavior: smooth;
     }
 
     body {
-      font-family: Arial, sans-serif;
-      background: var(--light-gray);
-      color: #263449;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Inter, "Segoe UI", Arial, sans-serif;
       line-height: 1.7;
     }
 
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1080px, 90%);
+      margin: auto;
+    }
+
     header {
-      background: var(--white);
-      padding: 18px 8%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 15px;
-      border-bottom: 1px solid #e2e8f0;
       position: sticky;
       top: 0;
       z-index: 10;
+      background: rgba(255, 255, 255, .94);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(12px);
+    }
+
+    nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
     }
 
     .logo {
-      color: var(--navy);
-      font-size: 22px;
-      font-weight: bold;
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--text);
     }
 
-    nav a {
-      text-decoration: none;
-      color: var(--navy);
-      margin-left: 20px;
-      font-weight: 600;
+    .logo span {
+      color: var(--accent);
     }
 
-    nav a:hover {
-      color: var(--blue);
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 22px;
+      font-size: .92rem;
+      color: var(--muted);
     }
 
-    section {
-      padding: 75px 8%;
+    .nav-links a:hover {
+      color: var(--accent);
     }
 
     .hero {
-      background: linear-gradient(135deg, #eaf3fc, #ffffff);
-      text-align: center;
-      padding: 110px 8%;
-    }
-
-    .hero h1 {
-      color: var(--navy);
-      font-size: clamp(34px, 5vw, 54px);
-      margin-bottom: 12px;
-    }
-
-    .hero h2 {
-      color: var(--blue);
-      font-size: 24px;
-      margin-bottom: 18px;
-    }
-
-    .hero p {
-      max-width: 680px;
-      margin: 0 auto 28px;
-      color: var(--gray);
-      font-size: 17px;
-    }
-
-    .button {
-      display: inline-block;
-      background: var(--navy);
-      color: white;
-      padding: 12px 24px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-      margin: 5px;
-      transition: 0.2s;
-    }
-
-    .button:hover {
-      background: var(--blue);
-      transform: translateY(-2px);
-    }
-
-    .button.secondary {
-      background: white;
-      color: var(--navy);
-      border: 1px solid var(--navy);
-    }
-
-    .section-title {
-      color: var(--navy);
-      font-size: 30px;
-      text-align: center;
-      margin-bottom: 35px;
-    }
-
-    .about {
-      background: white;
-      text-align: center;
-    }
-
-    .about p {
-      max-width: 800px;
-      margin: auto;
-      color: var(--gray);
-    }
-
-    .skills-grid,
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 22px;
-    }
-
-    .skill-card,
-    .project-card {
-      background: white;
-      padding: 25px;
-      border-radius: 12px;
-      border: 1px solid #e2e8f0;
-      box-shadow: 0 5px 18px rgba(22, 52, 92, 0.05);
-    }
-
-    .skill-card h3,
-    .project-card h3 {
-      color: var(--navy);
-      margin-bottom: 12px;
-    }
-
-    .skill-card p,
-    .project-card p {
-      color: var(--gray);
+      min-height: 570px;
+      display: flex;
+      align-items: center;
+      padding: 90px 0;
+      background:
+        radial-gradient(ellipse at 85% 25%, rgba(36, 89, 169, .10), transparent 35%),
+        radial-gradient(ellipse at 10% 80%, rgba(109, 150, 217, .14), transparent 35%);
     }
 
     .tag {
       display: inline-block;
-      background: var(--light-blue);
-      color: var(--navy);
-      padding: 5px 10px;
-      border-radius: 5px;
-      font-size: 13px;
-      margin: 12px 4px 0 0;
+      color: var(--accent);
+      border: 1px solid rgba(36, 89, 169, .28);
+      background: rgba(36, 89, 169, .06);
+      border-radius: 30px;
+      padding: 6px 14px;
+      font-size: .85rem;
+      margin-bottom: 24px;
     }
 
-    .project-card a {
+    h1 {
+      font-size: clamp(2.6rem, 6vw, 4.8rem);
+      line-height: 1.12;
+      letter-spacing: -2px;
+      margin-bottom: 22px;
+      color: var(--text);
+    }
+
+    h1 span,
+    .highlight {
+      color: var(--accent);
+    }
+
+    .hero p {
+      max-width: 680px;
+      color: var(--muted);
+      font-size: 1.1rem;
+      margin-bottom: 30px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .btn {
       display: inline-block;
-      margin-top: 18px;
-      color: var(--blue);
-      text-decoration: none;
-      font-weight: bold;
+      padding: 12px 20px;
+      border: 1px solid var(--accent);
+      border-radius: 9px;
+      font-weight: 700;
+      color: var(--accent);
+      background: transparent;
+      transition: .2s;
     }
 
-    .project-card a:hover {
-      text-decoration: underline;
+    .btn.primary {
+      background: var(--accent);
+      color: #ffffff;
     }
 
-    .contact {
-      background: var(--light-blue);
-      text-align: center;
+    .btn:hover {
+      transform: translateY(-2px);
+      opacity: .88;
     }
 
-    .contact p {
-      color: var(--gray);
+    section {
+      padding: 85px 0;
+      scroll-margin-top: 76px;
+    }
+
+    .section-label {
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: .78rem;
+      font-weight: 800;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 4vw, 2.7rem);
+      margin: 8px 0 18px;
+      letter-spacing: -1px;
+      color: var(--text);
+    }
+
+    .intro {
+      color: var(--muted);
+      max-width: 720px;
+      margin-bottom: 32px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 26px;
+      box-shadow: 0 6px 24px rgba(22, 52, 92, .045);
+      transition: .2s;
+    }
+
+    .card:hover {
+      border-color: rgba(36, 89, 169, .35);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 28px rgba(22, 52, 92, .09);
+    }
+
+    .card h3 {
+      font-size: 1.15rem;
+      margin: 10px 0;
+      color: var(--text);
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: .96rem;
+    }
+
+    .icon {
+      font-size: 1.7rem;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .skill {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 8px 13px;
+      background: #ffffff;
+      color: #29466f;
+      font-size: .9rem;
+    }
+
+    .project-meta {
+      color: var(--accent);
+      font-size: .8rem;
+      font-weight: 700;
+      margin-top: 16px;
+    }
+
+    .contact-box {
+      border: 1px solid var(--border);
+      background: linear-gradient(135deg, #ffffff, #eaf1fa);
+      border-radius: 18px;
+      padding: 36px;
+      box-shadow: 0 6px 24px rgba(22, 52, 92, .045);
+    }
+
+    .contact-box p {
+      color: var(--muted);
       margin-bottom: 22px;
     }
 
     footer {
-      background: var(--navy);
-      color: white;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
       text-align: center;
-      padding: 22px;
+      padding: 25px 0;
+      font-size: .88rem;
+      background: #ffffff;
     }
 
-    @media (max-width: 600px) {
-      header {
-        justify-content: center;
-      }
-
+    @media (max-width: 650px) {
       nav {
-        text-align: center;
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 16px 0;
       }
 
-      nav a {
-        display: inline-block;
-        margin: 5px 8px;
+      .nav-links {
+        gap: 12px;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 75px 0;
       }
 
       section {
-        padding: 55px 6%;
+        padding: 62px 0;
+      }
+
+      .contact-box {
+        padding: 24px;
       }
     }
   </style>
@@ -221,125 +293,184 @@
 <body>
 
   <header>
-    <div class="logo">Douaa Guetleni</div>
+    <nav class="container">
+      <a class="logo" href="#home">Douaa Guetleni<span>.</span></a>
 
-    <nav>
-      <a href="#accueil">Accueil</a>
-      <a href="#apropos">À propos</a>
-      <a href="#competences">Compétences</a>
-      <a href="#projets">Projets</a>
-      <a href="#contact">Contact</a>
+      <div class="nav-links">
+        <a href="#home">Accueil</a>
+        <a href="#about">À propos</a>
+        <a href="#skills">Compétences</a>
+        <a href="#projects">Projets</a>
+        <a href="#contact">Contact</a>
+      </div>
     </nav>
   </header>
 
-  <section class="hero" id="accueil">
-    <h1>Douaa Guetleni</h1>
-    <h2>Étudiante en Master Math-Info · Data Science</h2>
+  <main>
 
-    <p>
-      Passionnée par la data science, l'analyse des données et
-      l'intelligence artificielle, je développe mes compétences
-      à travers des projets pratiques et des solutions innovantes.
-    </p>
+    <section class="hero" id="home">
+      <div class="container">
+        <span class="tag">Étudiante en Master · Data Science</span>
 
-    <a href="#projets" class="button">Découvrir mes projets</a>
-    <a href="#contact" class="button secondary">Me contacter</a>
-  </section>
+        <h1>Bonjour, je suis<br><span>Douaa Guetleni.</span></h1>
 
-  <section class="about" id="apropos">
-    <h2 class="section-title">À propos de moi</h2>
-
-    <p>
-      Je suis titulaire d'une licence en sciences informatiques et
-      actuellement étudiante en Master Math-Info, spécialisée en
-      Data Science. Je m'intéresse à l'analyse des données, au
-      machine learning et au développement d'applications.
-      Mon objectif est de mettre mes connaissances en pratique
-      pour résoudre des problèmes concrets.
-    </p>
-  </section>
-
-  <section id="competences">
-    <h2 class="section-title">Mes compétences</h2>
-
-    <div class="skills-grid">
-      <div class="skill-card">
-        <h3>Programmation</h3>
-        <p>Python, SQL et bases en développement web.</p>
-        <span class="tag">Python</span>
-        <span class="tag">SQL</span>
-      </div>
-
-      <div class="skill-card">
-        <h3>Data Science</h3>
-        <p>Analyse de données, statistiques et découverte du machine learning.</p>
-        <span class="tag">Data Analysis</span>
-        <span class="tag">Machine Learning</span>
-      </div>
-
-      <div class="skill-card">
-        <h3>Outils</h3>
-        <p>Jupyter Notebook, Google Colab et GitHub.</p>
-        <span class="tag">Jupyter</span>
-        <span class="tag">GitHub</span>
-      </div>
-    </div>
-  </section>
-
-  <section id="projets" class="about">
-    <h2 class="section-title">Mes projets</h2>
-
-    <div class="projects-grid">
-      <div class="project-card">
-        <h3>Customer Churn Prediction</h3>
         <p>
-          Projet de data science consacré à l'analyse des données
-          clients et à la prédiction du risque de désabonnement.
+          Étudiante en Master Mathématiques-Informatique, intéressée par
+          la Data Science, l'analyse de données et le Machine Learning.
+          J'aime transformer les données en informations utiles et explorer
+          des solutions à des problèmes concrets.
         </p>
-        <span class="tag">Python</span>
-        <span class="tag">Machine Learning</span>
-        <br>
-        <a href="https://github.com/douaag06-arch/customer-churn-prediction"
-           target="_blank" rel="noopener noreferrer">
-          Voir le projet sur GitHub →
-        </a>
-      </div>
 
-      <div class="project-card">
-        <h3>Digitalisation des devis et factures</h3>
-        <p>
-          Projet de fin d'études portant sur la digitalisation des
-          devis et factures avec des templates personnalisés,
-          l'extraction de données par OCR et l'intégration de l'IA.
+        <div class="buttons">
+          <a class="btn primary" href="#projects">Découvrir mes projets ↗</a>
+          <a class="btn" href="#contact">Me contacter</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-label">À propos</div>
+        <h2>Mon parcours</h2>
+
+        <p class="intro">
+          Titulaire d'une licence en sciences informatiques et actuellement
+          en Master Mathématiques-Informatique, je développe mes compétences
+          en programmation, analyse de données et apprentissage automatique.
+          Je souhaite continuer à apprendre et contribuer à des projets
+          concrets dans le domaine de la Data Science.
         </p>
-        <span class="tag">OCR</span>
-        <span class="tag">IA</span>
-        <span class="tag">Vue.js</span>
-        <span class="tag">Node.js</span>
-        <p>Projet présenté sans publication du code source.</p>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="contact" id="contact">
-    <h2 class="section-title">Contact</h2>
-    <p>Vous souhaitez échanger avec moi à propos d'un projet ou d'une opportunité ?</p>
+    <section id="skills">
+      <div class="container">
+        <div class="section-label">Mon expertise</div>
+        <h2>Compétences techniques</h2>
 
-    <a href="mailto:douaag06@gmail.com" class="button">
-      douaag06@gmail.com
-    </a>
+        <p class="intro">
+          Les outils et technologies que j'utilise dans mes projets
+          académiques et personnels.
+        </p>
 
-    <a href="https://github.com/douaag06-arch"
-       class="button secondary"
-       target="_blank" rel="noopener noreferrer">
-      Mon GitHub
-    </a>
-  </section>
+        <div class="skills">
+          <span class="skill">Python</span>
+          <span class="skill">Pandas</span>
+          <span class="skill">NumPy</span>
+          <span class="skill">Scikit-learn</span>
+          <span class="skill">Machine Learning</span>
+          <span class="skill">Data Visualization</span>
+          <span class="skill">Plotly</span>
+          <span class="skill">SQL / MySQL</span>
+          <span class="skill">Git & GitHub</span>
+          <span class="skill">HTML & CSS</span>
+          <span class="skill">JavaScript</span>
+          <span class="skill">Vue.js</span>
+          <span class="skill">Node.js</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <div class="section-label">Portfolio</div>
+        <h2>Mes projets</h2>
+
+        <p class="intro">
+          Quelques projets illustrant mon apprentissage et mon intérêt
+          pour l'informatique et la Data Science.
+        </p>
+
+        <div class="grid">
+
+          <article class="card">
+            <div class="icon">📊</div>
+            <h3>Customer Churn Prediction</h3>
+
+            <p>
+              Projet de Machine Learning visant à prédire le départ des
+              clients d'un opérateur télécom. Comparaison du k-Nearest
+              Neighbors (k-NN) et d'un arbre de décision avec Python,
+              Scikit-learn et Plotly.
+            </p>
+
+            <div class="project-meta">
+              PYTHON · MACHINE LEARNING · PLOTLY
+            </div>
+
+            <p style="margin-top:14px">
+              <a class="highlight"
+                 href="https://github.com/douaag06-arch/customer-churn-prediction"
+                 target="_blank"
+                 rel="noopener noreferrer">
+                Voir le dépôt GitHub ↗
+              </a>
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="icon">📄</div>
+            <h3>Digitalisation des devis et factures</h3>
+
+            <p>
+              Projet de fin d'études portant sur la digitalisation des devis
+              et factures, avec des modèles personnalisés, l'extraction
+              automatique de données par OCR et l'intégration de techniques
+              d'intelligence artificielle.
+            </p>
+
+            <div class="project-meta">
+              VUE.JS · NODE.JS · MYSQL · OCR / IA
+            </div>
+
+            <p style="margin-top:14px">
+              Projet de fin d'études · Présentation sans code source public.
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="section-label">Restons en contact</div>
+        <h2>Construisons quelque chose ensemble.</h2>
+
+        <div class="contact-box">
+          <p>
+            Je suis intéressée par les opportunités de stage et les projets
+            liés à la Data Science. N'hésitez pas à me contacter.
+          </p>
+
+          <div class="buttons">
+            <a class="btn primary" href="mailto:douaag06@gmail.com">
+              M'envoyer un e-mail ↗
+            </a>
+
+            <a class="btn"
+               href="https://github.com/douaag06-arch"
+               target="_blank"
+               rel="noopener noreferrer">
+              Mon GitHub ↗
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
 
   <footer>
-    <p>© 2026 Douaa Guetleni · Portfolio Data Science</p>
+    <div class="container">
+      © <span id="year">2026</span> Douaa Guetleni · Portfolio Data Science
+    </div>
   </footer>
+
+  <script>
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
 
 </body>
 </html>
-```
